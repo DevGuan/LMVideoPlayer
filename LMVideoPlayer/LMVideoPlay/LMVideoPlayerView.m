@@ -7,13 +7,14 @@
 //
 
 #import "LMVideoPlayerView.h"
-#import "Masonry.h"
 #import "UIImage+Extension.h"
 
 static const CGFloat kVideoControlBarHeight = 40.0;
 static const CGFloat kVideoControlAnimationTimeInterval = 0.3;
 static const CGFloat kVideoControlTimeLabelFontSize = 10.0;
 static const CGFloat kVideoControlBarAutoFadeOutTimeInterval = 5.0;
+/** 蒙版弹出和收起的动画时间 */
+static const CGFloat kVideoControlMaskTimeInterval = 0.1;
 
 
 
@@ -75,6 +76,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeInterval = 5.0;
     self.topView.frame = CGRectMake(CGRectGetMinX(self.bounds), CGRectGetMinY(self.bounds), CGRectGetWidth(self.bounds), kVideoControlBarHeight);
     self.closeBtn.frame = CGRectMake(CGRectGetWidth(self.topView.bounds) - CGRectGetWidth(self.closeBtn.bounds), CGRectGetMinX(self.topView.bounds), CGRectGetWidth(self.closeBtn.bounds), CGRectGetHeight(self.closeBtn.bounds));
     self.bottomView.frame = CGRectMake(CGRectGetMinX(self.bounds), CGRectGetHeight(self.bounds) - kVideoControlBarHeight, CGRectGetWidth(self.bounds), kVideoControlBarHeight);
+//    self.playOrPauseBtn.frame = CGRectMake(, CGRectGetHeight(self.bottomView.bounds)/2 - CGRectGetHeight(self.playOrPauseBtn.bounds)/2, CGRectGetWidth(self.playOrPauseBtn.bounds), CGRectGetHeight(self.playOrPauseBtn.bounds));
     
     self.playOrPauseBtn.frame = CGRectMake(CGRectGetWidth(self.bounds)/ 2 -20, CGRectGetHeight(self.bounds) / 2 - 40 , CGRectGetWidth(self.playOrPauseBtn.bounds), CGRectGetHeight(self.playOrPauseBtn.bounds));
     
@@ -146,7 +148,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeInterval = 5.0;
 
 - (void)onTap:(UITapGestureRecognizer *)gesture
 {
-
+    
     if (gesture.state == UIGestureRecognizerStateRecognized) {
         if (self.isBarShowing) {
             [self animateHide];
@@ -269,3 +271,15 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeInterval = 5.0;
 
 @end
 
+//#pragma mark - Private Method
+//
+//- (NSString *)videoImageName:(NSString *)name
+//{
+//    if (name) {
+//        NSString *path = [NSString stringWithFormat:@"LMVideoPlayer.bundle/%@",name];
+//        return path;
+//    }
+//    return nil;
+//}
+//
+//@end

@@ -8,6 +8,8 @@
 
 #import "LMVideoPlayerOperationView.h"
 #import "LMVideoPlayerView.h"
+
+
 static const CGFloat kVideoPlayerControllerAnimationTimeInterval = 0.3f;
 
 
@@ -47,6 +49,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     if (self) {
         _currentTimes = 0;
         self.frame = frame;
+        self.originFrame = self.frame;
         self.backgroundColor = [UIColor grayColor];
         self.videoControl.frame = frame;
         self.videoControl.playOrPauseBtn.selected = NO;
@@ -74,11 +77,11 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     //AVPlayer
     self.player = [AVPlayer playerWithPlayerItem:self.currentItem];
     self.playerLayer.backgroundColor = (__bridge CGColorRef)([UIColor redColor]);
-
+    
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-
+    
     self.playerLayer.videoGravity = AVLayerVideoGravityResize;
-
+    
     [self.layer addSublayer:self.playerLayer];
     [self bringSubviewToFront:self.videoControl];
     
@@ -86,6 +89,15 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
                        forKeyPath:@"status"
                           options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                           context:PlayViewStatusObservationContext];
+    
+    
+    //旋转屏幕通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onDeviceOrientationChange)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil
+     ];
+    
 }
 
 - (void)currentItemEndPause {
@@ -113,10 +125,10 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 - (void)cancelObserver
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-
+    
     [self.player pause];
     self.player = nil;
-
+    
     [self.autoDismissTimer invalidate];
     [self.currentItem removeObserver:self forKeyPath:@"status"];
 }
@@ -124,7 +136,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 - (void)configControlAction
 {
     [self.videoControl.playOrPauseBtn addTarget:self action:@selector(playButtonClick) forControlEvents:UIControlEventTouchUpInside];
-//    [self.videoControl.pauseButton addTarget:self action:@selector(pauseButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    //    [self.videoControl.pauseButton addTarget:self action:@selector(pauseButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.videoControl.closeBtn addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.videoControl.fullScreenButton addTarget:self action:@selector(fullScreenButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.videoControl.shrinkScreenButton addTarget:self action:@selector(shrinkScreenButtonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -133,7 +145,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     [self.videoControl.progressSlider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside];
     [self.videoControl.progressSlider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpOutside];
     [self setProgressSliderMaxMinValues];
-//    [self monitorVideoPlayback];
+    //    [self monitorVideoPlayback];
 }
 
 
@@ -160,7 +172,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     if (self.isFullscreenMode) {
         return;
     }
-    self.originFrame = self.frame;
+    
     CGFloat height = [[UIScreen mainScreen] bounds].size.width;
     CGFloat width = [[UIScreen mainScreen] bounds].size.height;
     CGRect frame = CGRectMake((height - width) / 2, (width - height) / 2, width, height);;
@@ -178,13 +190,45 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 
 - (void)shrinkScreenButtonClick
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:LMShrinkScreenPlayNotification object:nil];
-    self.videoControl.frame = self.originFrame;
-    self.isFullscreenMode = YES;
-    self.videoControl.fullScreenButton.hidden = NO;
-    self.videoControl.shrinkScreenButton.hidden = YES;
+    
+    if (!self.isFullscreenMode) {
+        return;
+    }
+    
+    if (_currentCell) {
+        if (self.isSmallScreen) {
+            //放widow上,小屏显示
+            [self toSmallScreen];
+        }else{
+            [self toCell:_currentCell];
+        }
+        return;
+    }
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        [self setTransform:CGAffineTransformIdentity];
+        self.frame = self.originFrame;
+        self.videoControl.frame = self.originFrame;
+    } completion:^(BOOL finished) {
+        self.isFullscreenMode = NO;
+        self.videoControl.fullScreenButton.hidden = NO;
+        self.videoControl.shrinkScreenButton.hidden = YES;
+    }];
+    
+    [self windowsShrinkScreen];
 }
 
+- (void)windowsShrinkScreen {
+    [UIView animateWithDuration:0.3f animations:^{
+        [self setTransform:CGAffineTransformIdentity];
+        self.frame = self.originFrame;
+        self.videoControl.frame = self.originFrame;
+    } completion:^(BOOL finished) {
+        self.isFullscreenMode = NO;
+        self.videoControl.fullScreenButton.hidden = NO;
+        self.videoControl.shrinkScreenButton.hidden = YES;
+    }];
+}
 
 
 - (void)setProgressSliderMaxMinValues {
@@ -194,7 +238,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 }
 
 - (void)progressSliderTouchBegan:(UISlider *)slider {
-//    [self pause];
+    //    [self pause];
     
     [self.videoControl cancelAutoFadeOutControlBar];
 }
@@ -202,7 +246,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 - (void)progressSliderTouchEnded:(UISlider *)slider {
     
     [self.player seekToTime:CMTimeMakeWithSeconds(slider.value, 1)];
-
+    
     [self play];
     [self.videoControl autoFadeOutControlBar];
 }
@@ -323,11 +367,8 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
             case AVPlayerStatusUnknown:
             {
                 [self setupAutoDismissTimer:0.0];
-//                self.videoControl.playOrPauseBtn.selected = !self.videoControl.playOrPauseBtn.selected;
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.videoControl.indicatorView startAnimating];
-//                });
                 
+                [self.videoControl.indicatorView startAnimating];
             }
                 break;
                 
@@ -345,7 +386,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
                 [self startDurationTimer];
                 
                 //5s dismiss bottomView no repeats
-//                [self setupAutoDismissTimer:5.0];
+                //                [self setupAutoDismissTimer:5.0];
                 
                 
             }
@@ -436,7 +477,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     __weak typeof(self) weakSelf = self;
     
     CMTime playerDuration = [self playerItemDuration];
-
+    
     if (CMTIME_IS_INVALID(playerDuration)){
         weakSelf.videoControl.progressSlider.minimumValue = 0.0;
         return;
@@ -455,7 +496,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         dispatch_async(queue, ^{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if (_timeTemp == time) {
-                
+                    
                     [self.videoControl.indicatorView startAnimating];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(7 * NSEC_PER_SEC)), queue, ^{
                         [self.videoControl.indicatorView stopAnimating];
@@ -465,8 +506,8 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
                 }
             });
         });
-    
-
+        
+        
     }
 }
 
@@ -488,7 +529,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     }
     // 如果是小屏幕添加一个小屏幕的手势
     if (!self.isSmallScreen) {
-    // 单击的 Recognizer
+        // 单击的 Recognizer
         UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap)];
         singleTap.numberOfTapsRequired = 1; // 单击
         [self addGestureRecognizer:singleTap];
@@ -523,6 +564,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 }
 
 - (void)toCell:(UITableViewCell *)cell{
+    NSLog(@"cell-%@",cell);
     [self removeFromSuperview];
     [UIView animateWithDuration:0.5f animations:^{
         self.transform = CGAffineTransformIdentity;
@@ -538,6 +580,78 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     }];
 }
 
+-(void)toFullScreenWithInterfaceOrientation:(UIInterfaceOrientation )interfaceOrientation{
+    [self removeFromSuperview];
+    self.transform = CGAffineTransformIdentity;
+    if (interfaceOrientation==UIInterfaceOrientationLandscapeLeft) {
+        self.transform = CGAffineTransformMakeRotation(-M_PI_2);
+    }else if(interfaceOrientation==UIInterfaceOrientationLandscapeRight){
+        self.transform = CGAffineTransformMakeRotation(M_PI_2);
+    }
+    self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    self.playerLayer.frame =  CGRectMake(0,0, kScreenHeight,kScreenWidth);
+    self.videoControl.frame = CGRectMake(0, 0, kScreenHeight, kScreenWidth);
+    
+    
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    
+    // BUG
+    //    [self.current bringSubviewToFront:self];
+    //    lmPlayer.fullScreenBtn.selected = YES;
+    //    [self bringSubviewToFront:self.videoControl.bottomView];
+    
+}
+/**
+ *  旋转屏幕通知
+ */
+- (void)onDeviceOrientationChange{
+    if (self==nil||self.superview==nil){
+        return;
+    }
+    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+    UIInterfaceOrientation interfaceOrientation = (UIInterfaceOrientation)orientation;
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationPortraitUpsideDown:{
+        }
+            break;
+        case UIInterfaceOrientationPortrait:{
+            if (self.isFullscreenMode) {
+                if (_currentCell) {
+                    if (self.isSmallScreen) {
+                        //放widow上,小屏显示
+                        [self toSmallScreen];
+                    }else{
+                        
+                        [self toCell:_currentCell];
+                    }
+                } else {
+                    [self windowsShrinkScreen];
+                }
+            }
+        }
+            break;
+        case UIInterfaceOrientationLandscapeLeft:{
+            if (self.isFullscreenMode == NO) {
+                self.isFullscreenMode = YES;
+                
+                //                [self setNeedsStatusBarAppearanceUpdate];
+                [self toFullScreenWithInterfaceOrientation:interfaceOrientation];
+            }
+        }
+            break;
+        case UIInterfaceOrientationLandscapeRight:{
+            if (self.isFullscreenMode == NO) {
+                self.isFullscreenMode = YES;
+                //                [self setNeedsStatusBarAppearanceUpdate];
+                [self toFullScreenWithInterfaceOrientation:interfaceOrientation];
+            }
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 
 @end

@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AEE983A31CA0E84C0005512B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE983A21CA0E84C0005512B /* main.m */; };
+		AE85E46E1CA656D40095A8F0 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85E4601CA656D40095A8F0 /* UIImage+Extension.m */; };
+		AE85E46F1CA656D40095A8F0 /* LMVideoAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85E4621CA656D40095A8F0 /* LMVideoAVPlayerView.m */; };
+		AE85E4701CA656D40095A8F0 /* LMVideoPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE85E4631CA656D40095A8F0 /* LMVideoPlayer.bundle */; };
+		AE85E4711CA656D40095A8F0 /* LMVideoPlayerOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85E4651CA656D40095A8F0 /* LMVideoPlayerOperationView.m */; };
+		AE85E4721CA656D40095A8F0 /* LMVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85E4671CA656D40095A8F0 /* LMVideoPlayerView.m */; };
 		AEE983AC1CA0E84C0005512B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE983AA1CA0E84C0005512B /* Main.storyboard */; };
 		AEE983AE1CA0E84C0005512B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE983AD1CA0E84C0005512B /* Images.xcassets */; };
 		AEE983B11CA0E84C0005512B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEE983AF1CA0E84C0005512B /* LaunchScreen.xib */; };
 		AEE983BD1CA0E84C0005512B /* LMVideoPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE983BC1CA0E84C0005512B /* LMVideoPlayerTests.m */; };
 		AEE983D41CA0E8C40005512B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE983C81CA0E8C40005512B /* AppDelegate.m */; };
 		AEE983D51CA0E8C40005512B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE983C91CA0E8C40005512B /* main.m */; };
-		AEE983D61CA0E8C40005512B /* LMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEE983CB1CA0E8C40005512B /* LMPlayer.bundle */; };
-		AEE983D71CA0E8C40005512B /* LMVideoAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE983CE1CA0E8C40005512B /* LMVideoAVPlayerView.m */; };
-		AEE983D81CA0E8C40005512B /* LMVideoPlayerOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE983D01CA0E8C40005512B /* LMVideoPlayerOperationView.m */; };
-		AEE983D91CA0E8C40005512B /* LMVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE983D21CA0E8C40005512B /* LMVideoPlayerView.m */; };
 		AEE983DC1CA0E9020005512B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE983DB1CA0E9020005512B /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -32,9 +32,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE85E45F1CA656D40095A8F0 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		AE85E4601CA656D40095A8F0 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		AE85E4611CA656D40095A8F0 /* LMVideoAVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVideoAVPlayerView.h; sourceTree = "<group>"; };
+		AE85E4621CA656D40095A8F0 /* LMVideoAVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMVideoAVPlayerView.m; sourceTree = "<group>"; };
+		AE85E4631CA656D40095A8F0 /* LMVideoPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LMVideoPlayer.bundle; sourceTree = "<group>"; };
+		AE85E4641CA656D40095A8F0 /* LMVideoPlayerOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVideoPlayerOperationView.h; sourceTree = "<group>"; };
+		AE85E4651CA656D40095A8F0 /* LMVideoPlayerOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMVideoPlayerOperationView.m; sourceTree = "<group>"; };
+		AE85E4661CA656D40095A8F0 /* LMVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVideoPlayerView.h; sourceTree = "<group>"; };
+		AE85E4671CA656D40095A8F0 /* LMVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMVideoPlayerView.m; sourceTree = "<group>"; };
 		AEE9839D1CA0E84C0005512B /* LMVideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMVideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE983A11CA0E84C0005512B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEE983A21CA0E84C0005512B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AEE983AB1CA0E84C0005512B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEE983AD1CA0E84C0005512B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AEE983B01CA0E84C0005512B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -44,13 +52,6 @@
 		AEE983C71CA0E8C40005512B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AEE983C81CA0E8C40005512B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AEE983C91CA0E8C40005512B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AEE983CB1CA0E8C40005512B /* LMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LMPlayer.bundle; sourceTree = "<group>"; };
-		AEE983CD1CA0E8C40005512B /* LMVideoAVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVideoAVPlayerView.h; sourceTree = "<group>"; };
-		AEE983CE1CA0E8C40005512B /* LMVideoAVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMVideoAVPlayerView.m; sourceTree = "<group>"; };
-		AEE983CF1CA0E8C40005512B /* LMVideoPlayerOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVideoPlayerOperationView.h; sourceTree = "<group>"; };
-		AEE983D01CA0E8C40005512B /* LMVideoPlayerOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMVideoPlayerOperationView.m; sourceTree = "<group>"; };
-		AEE983D11CA0E8C40005512B /* LMVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVideoPlayerView.h; sourceTree = "<group>"; };
-		AEE983D21CA0E8C40005512B /* LMVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMVideoPlayerView.m; sourceTree = "<group>"; };
 		AEE983DA1CA0E9020005512B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AEE983DB1CA0E9020005512B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +74,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE85E45D1CA656D40095A8F0 /* LMVideoPlay */ = {
+			isa = PBXGroup;
+			children = (
+				AE85E45E1CA656D40095A8F0 /* Category */,
+				AE85E4611CA656D40095A8F0 /* LMVideoAVPlayerView.h */,
+				AE85E4621CA656D40095A8F0 /* LMVideoAVPlayerView.m */,
+				AE85E4631CA656D40095A8F0 /* LMVideoPlayer.bundle */,
+				AE85E4641CA656D40095A8F0 /* LMVideoPlayerOperationView.h */,
+				AE85E4651CA656D40095A8F0 /* LMVideoPlayerOperationView.m */,
+				AE85E4661CA656D40095A8F0 /* LMVideoPlayerView.h */,
+				AE85E4671CA656D40095A8F0 /* LMVideoPlayerView.m */,
+			);
+			path = LMVideoPlay;
+			sourceTree = "<group>";
+		};
+		AE85E45E1CA656D40095A8F0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				AE85E45F1CA656D40095A8F0 /* UIImage+Extension.h */,
+				AE85E4601CA656D40095A8F0 /* UIImage+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		AEE983941CA0E84C0005512B = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +119,8 @@
 		AEE9839F1CA0E84C0005512B /* LMVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				AE85E45D1CA656D40095A8F0 /* LMVideoPlay */,
 				AEE983C61CA0E8C40005512B /* AppDelegate */,
-				AEE983CA1CA0E8C40005512B /* LMVideoPlayer */,
 				AEE983D31CA0E8C40005512B /* ViewController */,
 				AEE983AA1CA0E84C0005512B /* Main.storyboard */,
 				AEE983AD1CA0E84C0005512B /* Images.xcassets */,
@@ -109,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				AEE983A11CA0E84C0005512B /* Info.plist */,
-				AEE983A21CA0E84C0005512B /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -139,28 +163,6 @@
 				AEE983C91CA0E8C40005512B /* main.m */,
 			);
 			path = AppDelegate;
-			sourceTree = "<group>";
-		};
-		AEE983CA1CA0E8C40005512B /* LMVideoPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				AEE983CB1CA0E8C40005512B /* LMPlayer.bundle */,
-				AEE983CC1CA0E8C40005512B /* LMVideoPlay */,
-			);
-			path = LMVideoPlayer;
-			sourceTree = "<group>";
-		};
-		AEE983CC1CA0E8C40005512B /* LMVideoPlay */ = {
-			isa = PBXGroup;
-			children = (
-				AEE983CD1CA0E8C40005512B /* LMVideoAVPlayerView.h */,
-				AEE983CE1CA0E8C40005512B /* LMVideoAVPlayerView.m */,
-				AEE983CF1CA0E8C40005512B /* LMVideoPlayerOperationView.h */,
-				AEE983D01CA0E8C40005512B /* LMVideoPlayerOperationView.m */,
-				AEE983D11CA0E8C40005512B /* LMVideoPlayerView.h */,
-				AEE983D21CA0E8C40005512B /* LMVideoPlayerView.m */,
-			);
-			path = LMVideoPlay;
 			sourceTree = "<group>";
 		};
 		AEE983D31CA0E8C40005512B /* ViewController */ = {
@@ -253,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE983AC1CA0E84C0005512B /* Main.storyboard in Resources */,
-				AEE983D61CA0E8C40005512B /* LMPlayer.bundle in Resources */,
+				AE85E4701CA656D40095A8F0 /* LMVideoPlayer.bundle in Resources */,
 				AEE983B11CA0E84C0005512B /* LaunchScreen.xib in Resources */,
 				AEE983AE1CA0E84C0005512B /* Images.xcassets in Resources */,
 			);
@@ -273,13 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEE983D81CA0E8C40005512B /* LMVideoPlayerOperationView.m in Sources */,
 				AEE983D41CA0E8C40005512B /* AppDelegate.m in Sources */,
+				AE85E46F1CA656D40095A8F0 /* LMVideoAVPlayerView.m in Sources */,
 				AEE983D51CA0E8C40005512B /* main.m in Sources */,
-				AEE983A31CA0E84C0005512B /* main.m in Sources */,
+				AE85E4721CA656D40095A8F0 /* LMVideoPlayerView.m in Sources */,
 				AEE983DC1CA0E9020005512B /* MainViewController.m in Sources */,
-				AEE983D91CA0E8C40005512B /* LMVideoPlayerView.m in Sources */,
-				AEE983D71CA0E8C40005512B /* LMVideoAVPlayerView.m in Sources */,
+				AE85E4711CA656D40095A8F0 /* LMVideoPlayerOperationView.m in Sources */,
+				AE85E46E1CA656D40095A8F0 /* UIImage+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +474,7 @@
 				AEE983C21CA0E84C0005512B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEE983C31CA0E84C0005512B /* Build configuration list for PBXNativeTarget "LMVideoPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +483,7 @@
 				AEE983C51CA0E84C0005512B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

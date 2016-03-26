@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>373FD746-8A91-49C9-BD5C-E1A98FCA9760</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LMVideoPlayer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1A91BC8D64BF5577CEF176A99F006BD699792B6C</key>
+		<string>https://github.com/lingtingSir/LMVideoPlayer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LMVideoPlayer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1A91BC8D64BF5577CEF176A99F006BD699792B6C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/lingtingSir/LMVideoPlayer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1A91BC8D64BF5577CEF176A99F006BD699792B6C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1A91BC8D64BF5577CEF176A99F006BD699792B6C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LMVideoPlayer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -5,10 +5,8 @@
 LMPlayer *lmPlayer = [[LMVideoPlayerOperationView alloc] initWithFrame:self.currentCell.backgroundIV.bounds     <br/> videoURLString:model.tv.videoSource480]; <br/>
 [lmPlayer play]; <br/>
 普通播放效果参照此Demo <br/>
-![alt text](https://github.com/lingtingSir/LMVideoPlayer/blob/master/Video2.gif)
+![alt text](https://github.com/lingtingSir/LMVideoPlayer/blob/master/Video22.gif) <br/>
 
-
-操作方式可以demo项目KeTVViewController Demo  <br/>
 支持cell具体演示demo地址可以News文件夹下KeTVViewController控制器：<a>https://github.com/lingtingSir/36Ke</a>  <br/>
 ![alt text](http://upload-images.jianshu.io/upload_images/1231308-8ab438b90472c63d.gif?imageMogr2/auto-orient/strip
 )

@@ -20,6 +20,7 @@
 
 #Demonstration
 *   普通播放效果参照此Demo
+<br/>
 ![alt text](https://github.com/lingtingSir/LMVideoPlayer/blob/master/Video22.gif)
 *   支持cell具体演示demo地址可以News文件夹下KeTVViewController控制器
 ![alt text](http://upload-images.jianshu.io/upload_images/1231308-8ab438b90472c63d.gif?imageMogr2/auto-orient/strip

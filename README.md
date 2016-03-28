@@ -16,7 +16,7 @@
 
 
 #DownLoads
-*   <a>https://github.com/lingtingSir/LMVideoPlayer</a>  cell播放视频Demo
+*   <a>https://github.com/lingtingSir/36Ke</a>  cell播放视频Demo
 
 #Demonstration
 *   普通播放效果参照此Demo

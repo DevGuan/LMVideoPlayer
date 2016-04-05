@@ -48,10 +48,11 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     self = [super initWithFrame:frame];
     if (self) {
         _currentTimes = 0;
-        self.frame = frame;
-        self.originFrame = self.frame;
+//        self.frame = frame;
+        self.viewframe = frame;
+        self.originFrame = frame;
         self.backgroundColor = [UIColor grayColor];
-        self.videoControl.frame = frame;
+//        self.videoControl.frame = frame;
         self.videoControl.playOrPauseBtn.selected = NO;
         [self addSubview:self.videoControl];
         [self configAvplayer:videoURLString];
@@ -205,24 +206,14 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         return;
     }
     
-    [UIView animateWithDuration:0.3f animations:^{
-        [self setTransform:CGAffineTransformIdentity];
-        self.frame = self.originFrame;
-        self.videoControl.frame = self.originFrame;
-    } completion:^(BOOL finished) {
-        self.isFullscreenMode = NO;
-        self.videoControl.fullScreenButton.hidden = NO;
-        self.videoControl.shrinkScreenButton.hidden = YES;
-    }];
-    
     [self windowsShrinkScreen];
 }
 
 - (void)windowsShrinkScreen {
     [UIView animateWithDuration:0.3f animations:^{
         [self setTransform:CGAffineTransformIdentity];
-        self.frame = self.originFrame;
-        self.videoControl.frame = self.originFrame;
+        self.viewframe = self.originFrame;
+//        self.videoControl.frame = self.originFrame;
     } completion:^(BOOL finished) {
         self.isFullscreenMode = NO;
         self.videoControl.fullScreenButton.hidden = NO;

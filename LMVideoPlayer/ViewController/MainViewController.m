@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //    [self setNeedsStatusBarAppearanceUpdate];
-    _playView = [[LMVideoPlayerOperationView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300) videoURLString:@"http://flv2.bn.netease.com/videolib3/1603/18/Kjxcu2321/SD/Kjxcu2321-mobile.mp4"];
+    _playView = [[LMVideoPlayerOperationView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 300) videoURLString:@"http://flv2.bn.netease.com/videolib3/1603/18/Kjxcu2321/SD/Kjxcu2321-mobile.mp4"];
     [_playView play];
     [self.view addSubview:_playView];
     

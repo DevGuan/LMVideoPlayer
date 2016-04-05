@@ -197,7 +197,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     
     if (_currentCell) {
         if (self.isSmallScreen) {
-            //放widow上,小屏显示
+            // 放widow上,小屏显示
             [self toSmallScreen];
         }else{
             [self toCell:_currentCell];

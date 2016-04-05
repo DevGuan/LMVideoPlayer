@@ -11,7 +11,7 @@
 		AE85E46F1CA656D40095A8F0 /* LMVideoAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85E4621CA656D40095A8F0 /* LMVideoAVPlayerView.m */; };
 		AE85E4711CA656D40095A8F0 /* LMVideoPlayerOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85E4651CA656D40095A8F0 /* LMVideoPlayerOperationView.m */; };
 		AE85E4721CA656D40095A8F0 /* LMVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85E4671CA656D40095A8F0 /* LMVideoPlayerView.m */; };
-		AEAEC9EA1CB3F74D001562F2 /* LMVideoPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEAEC9E91CB3F74D001562F2 /* LMVideoPlayer.bundle */; };
+		AEAEC9EC1CB3F829001562F2 /* LMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEAEC9EB1CB3F829001562F2 /* LMPlayer.bundle */; };
 		AEE983AC1CA0E84C0005512B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE983AA1CA0E84C0005512B /* Main.storyboard */; };
 		AEE983AE1CA0E84C0005512B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE983AD1CA0E84C0005512B /* Images.xcassets */; };
 		AEE983B11CA0E84C0005512B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEE983AF1CA0E84C0005512B /* LaunchScreen.xib */; };
@@ -40,7 +40,7 @@
 		AE85E4651CA656D40095A8F0 /* LMVideoPlayerOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMVideoPlayerOperationView.m; sourceTree = "<group>"; };
 		AE85E4661CA656D40095A8F0 /* LMVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVideoPlayerView.h; sourceTree = "<group>"; };
 		AE85E4671CA656D40095A8F0 /* LMVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMVideoPlayerView.m; sourceTree = "<group>"; };
-		AEAEC9E91CB3F74D001562F2 /* LMVideoPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LMVideoPlayer.bundle; sourceTree = "<group>"; };
+		AEAEC9EB1CB3F829001562F2 /* LMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LMPlayer.bundle; sourceTree = "<group>"; };
 		AEE9839D1CA0E84C0005512B /* LMVideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMVideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE983A11CA0E84C0005512B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE983AB1CA0E84C0005512B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +77,7 @@
 		AE85E45D1CA656D40095A8F0 /* LMVideoPlay */ = {
 			isa = PBXGroup;
 			children = (
+				AEAEC9EB1CB3F829001562F2 /* LMPlayer.bundle */,
 				AE85E45E1CA656D40095A8F0 /* Category */,
 				AE85E4611CA656D40095A8F0 /* LMVideoAVPlayerView.h */,
 				AE85E4621CA656D40095A8F0 /* LMVideoAVPlayerView.m */,
@@ -84,7 +85,6 @@
 				AE85E4651CA656D40095A8F0 /* LMVideoPlayerOperationView.m */,
 				AE85E4661CA656D40095A8F0 /* LMVideoPlayerView.h */,
 				AE85E4671CA656D40095A8F0 /* LMVideoPlayerView.m */,
-				AEAEC9E91CB3F74D001562F2 /* LMVideoPlayer.bundle */,
 			);
 			path = LMVideoPlay;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE983AC1CA0E84C0005512B /* Main.storyboard in Resources */,
-				AEAEC9EA1CB3F74D001562F2 /* LMVideoPlayer.bundle in Resources */,
+				AEAEC9EC1CB3F829001562F2 /* LMPlayer.bundle in Resources */,
 				AEE983B11CA0E84C0005512B /* LaunchScreen.xib in Resources */,
 				AEE983AE1CA0E84C0005512B /* Images.xcassets in Resources */,
 			);
